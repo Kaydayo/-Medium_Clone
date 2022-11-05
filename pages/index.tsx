@@ -3,12 +3,14 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Header from '../components/Header'
 import {sanityClient, urlFor } from '../sanity'
+import { Post } from '../typings'
+import { IoIosTrendingUp } from 'react-icons/io'
 
 interface Props {
-  posts:[Post]
+  posts: [Post];
 }
 
-export default function Home (props: Props) {
+export default function Home ({posts}: Props) {
   return (
     <div className="">
       <Head>
@@ -33,6 +35,17 @@ export default function Home (props: Props) {
           <img src="/med-anima.gif" alt="" />
         </div>
 
+      </div>
+
+      <div className='h-screen px-20 py-10'>
+        <div className='flex items-center space-x-4'>
+          <div className='pr-px border rounded-full'>
+            <IoIosTrendingUp/>
+          </div>
+          <h4 className='text-xs font-bold'>
+            TRENDING ON MEDIUM
+          </h4>
+        </div>
       </div>
     </div>
   )

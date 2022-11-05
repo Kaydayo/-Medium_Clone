@@ -1,9 +1,19 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
+import { useScrollPosition } from '../hooks/useScrollPosition'
 
 function Header() {
+    function classNames(...classes: any[]) {
+        return classes.filter(Boolean).join(' ')
+    }
+
+    const scrollPosition = useScrollPosition()
+    console.log(scrollPosition, 'px')
   return (
-      <header className='fixed flex justify-between w-full p-5 px-20 mx-auto border-b border-black bg-mediumYellow'>
+      <header className={classNames(
+          scrollPosition > 400 ? "bg-white" :"bg-mediumYellow" ,
+          'fixed flex justify-between w-full p-5 px-20 mx-auto border-b boder-black '
+      )}>
           <div className='flex items-center space-x-5'>
               <Link href="/">
                   <img className="object-contain cursor-pointer w-44"
@@ -19,7 +29,12 @@ function Header() {
               <h3>
                   Sign in
               </h3>
-              <h3 className='px-4 py-1 text-white bg-black rounded-full border-black-200'>
+              <h3 className={
+                  classNames(
+                      scrollPosition > 400 ? "bg-green" : "bg-black",
+                      'px-4 py-1 text-white   rounded-full border-black-200'
+                  )
+              }>
                   Get Started
                   
               </h3>

@@ -8,7 +8,8 @@ module.exports = {
     colors: {
       'mediumYellow': '#FFC017',
       'black': 'black',
-      'white':'white'
+      'white': 'white',
+      'green':'rgb(21 128 61)'
     },
     extend: {},
   },
